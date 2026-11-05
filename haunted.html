@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Hidden Object — Haunted</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="sound.js" defer></script>
+</head>
+<body class="haunted">
+
+  <input class="st" type="radio" name="scr" id="scr-map" checked autocomplete="off" aria-label="Map; pause the room clock">
+  <input class="st" type="radio" name="scr" id="scr-1" autocomplete="off" aria-label="Room 1: The Foyer">
+  <input class="st" type="radio" name="scr" id="scr-2" autocomplete="off" aria-label="Room 2: Drawing Room">
+  <input class="st" type="radio" name="scr" id="scr-3" autocomplete="off" aria-label="Room 3: The Library">
+  <input class="st" type="radio" name="scr" id="scr-4" autocomplete="off" aria-label="Room 4: The Attic">
+  <input class="st" type="radio" name="scr" id="scr-5" autocomplete="off" aria-label="Room 5: The Crypt">
+  <input class="st" type="radio" name="scr" id="scr-6" autocomplete="off" aria-label="Room 6: The Ballroom">
+  <input class="st" type="radio" name="scr" id="scr-7" autocomplete="off" aria-label="Room 7: Master Chamber">
+
+  <input class="st" type="checkbox" id="hint-1" autocomplete="off" aria-label="Hint for room 1: toggle the next-unfound highlight">
+  <input class="st" type="checkbox" id="l1-i1" autocomplete="off" aria-label="Rusty key">
+  <input class="st" type="checkbox" id="l1-i2" autocomplete="off" aria-label="Wax candle stub">
+  <input class="st" type="checkbox" id="l1-i3" autocomplete="off" aria-label="Old photograph">
+  <input class="st" type="checkbox" id="l1-i4" autocomplete="off" aria-label="Pocket watch">
+  <input class="st" type="checkbox" id="l1-i5" autocomplete="off" aria-label="Withered rose">
+  <input class="st" type="checkbox" id="l1-i6" autocomplete="off" aria-label="Old letter">
+
+  <input class="st" type="checkbox" id="hint-2" autocomplete="off" aria-label="Hint for room 2: toggle the next-unfound highlight">
+  <input class="st" type="checkbox" id="l2-i1" autocomplete="off" aria-label="Wax candle stub">
+  <input class="st" type="checkbox" id="l2-i2" autocomplete="off" aria-label="Spider">
+  <input class="st" type="checkbox" id="l2-i3" autocomplete="off" aria-label="Old photograph">
+  <input class="st" type="checkbox" id="l2-i4" autocomplete="off" aria-label="Pocket watch">
+  <input class="st" type="checkbox" id="l2-i5" autocomplete="off" aria-label="Red gemstone">
+  <input class="st" type="checkbox" id="l2-i6" autocomplete="off" aria-label="Skull amulet">
+  <input class="st" type="checkbox" id="l2-i7" autocomplete="off" aria-label="Rusty key">
+
+  <input class="st" type="checkbox" id="hint-3" autocomplete="off" aria-label="Hint for room 3: toggle the next-unfound highlight">
+  <input class="st" type="checkbox" id="l3-i1" autocomplete="off" aria-label="Rusty key">
+  <input class="st" type="checkbox" id="l3-i2" autocomplete="off" aria-label="Wax candle stub">
+  <input class="st" type="checkbox" id="l3-i3" autocomplete="off" aria-label="Red gemstone">
+  <input class="st" type="checkbox" id="l3-i4" autocomplete="off" aria-label="Potion">
+  <input class="st" type="checkbox" id="l3-i5" autocomplete="off" aria-label="Old letter">
+  <input class="st" type="checkbox" id="l3-i6" autocomplete="off" aria-label="Pocket watch">
+  <input class="st" type="checkbox" id="l3-i7" autocomplete="off" aria-label="Spider">
+
+  <input class="st" type="checkbox" id="hint-4" autocomplete="off" aria-label="Hint for room 4: toggle the next-unfound highlight">
+  <input class="st" type="checkbox" id="l4-i1" autocomplete="off" aria-label="Old photograph">
+  <input class="st" type="checkbox" id="l4-i2" autocomplete="off" aria-label="Skull amulet">
+  <input class="st" type="checkbox" id="l4-i3" autocomplete="off" aria-label="Bat">
+  <input class="st" type="checkbox" id="l4-i4" autocomplete="off" aria-label="Withered rose">
+  <input class="st" type="checkbox" id="l4-i5" autocomplete="off" aria-label="Cursed ring">
+  <input class="st" type="checkbox" id="l4-i6" autocomplete="off" aria-label="Potion">
+  <input class="st" type="checkbox" id="l4-i7" autocomplete="off" aria-label="Rusty key">
+
+  <input class="st" type="checkbox" id="hint-5" autocomplete="off" aria-label="Hint for room 5: toggle the next-unfound highlight">
+  <input class="st" type="checkbox" id="l5-i1" autocomplete="off" aria-label="Red gemstone">
+  <input class="st" type="checkbox" id="l5-i2" autocomplete="off" aria-label="Wax candle stub">
+  <input class="st" type="checkbox" id="l5-i3" autocomplete="off" aria-label="Pocket watch">
+  <input class="st" type="checkbox" id="l5-i4" autocomplete="off" aria-label="Old letter">
+  <input class="st" type="checkbox" id="l5-i5" autocomplete="off" aria-label="Cursed ring">
+  <input class="st" type="checkbox" id="l5-i6" autocomplete="off" aria-label="Difference 1">
+  <input class="st" type="checkbox" id="l5-i7" autocomplete="off" aria-label="Difference 2">
+  <input class="st" type="checkbox" id="l5-i8" autocomplete="off" aria-label="Difference 3">
+  <input class="st" type="checkbox" id="l5-d1" autocomplete="off" aria-label="Difference 4">
+
+  <input class="st" type="checkbox" id="hint-6" autocomplete="off" aria-label="Hint for room 6: toggle the next-unfound highlight">
+  <input class="st" type="checkbox" id="l6-i1" autocomplete="off" aria-label="Rusty key">
+  <input class="st" type="checkbox" id="l6-i2" autocomplete="off" aria-label="Old photograph">
+  <input class="st" type="checkbox" id="l6-i3" autocomplete="off" aria-label="Bat">
+  <input class="st" type="checkbox" id="l6-i4" autocomplete="off" aria-label="Potion">
+  <input class="st" type="checkbox" id="l6-i5" autocomplete="off" aria-label="Tarnished crown">
+  <input class="st" type="checkbox" id="l6-i6" autocomplete="off" aria-label="Difference 1">
+  <input class="st" type="checkbox" id="l6-i7" autocomplete="off" aria-label="Difference 2">
+  <input class="st" type="checkbox" id="l6-i8" autocomplete="off" aria-label="Difference 3">
+  <input class="st" type="checkbox" id="l6-d1" autocomplete="off" aria-label="Difference 4">
+
+  <input class="st" type="checkbox" id="hint-7" autocomplete="off" aria-label="Hint for room 7: toggle the next-unfound highlight">
+  <input class="st" type="checkbox" id="l7-i1" autocomplete="off" aria-label="Cursed ring">
+  <input class="st" type="checkbox" id="l7-i2" autocomplete="off" aria-label="Tarnished crown">
+  <input class="st" type="checkbox" id="l7-i3" autocomplete="off" aria-label="Pocket watch">
+  <input class="st" type="checkbox" id="l7-i4" autocomplete="off" aria-label="Red gemstone">
+  <input class="st" type="checkbox" id="l7-i5" autocomplete="off" aria-label="Old letter">
+  <input class="st" type="checkbox" id="l7-key" autocomplete="off" aria-label="Cellar key">
+  <input class="st" type="checkbox" id="l7-i6" autocomplete="off" aria-label="Difference 1">
+  <input class="st" type="checkbox" id="l7-i7" autocomplete="off" aria-label="Difference 2">
+  <input class="st" type="checkbox" id="l7-i8" autocomplete="off" aria-label="Difference 3">
+  <input class="st" type="checkbox" id="l7-d1" autocomplete="off" aria-label="Difference 4">
+  <input class="st" type="checkbox" id="l7-d2" autocomplete="off" aria-label="Difference 5">
+
+  <audio id="theme" src="audio/haunted.wav" preload="none" loop></audio>
+  <main class="game-shell">
+
+    <!-- ===== MAP ===== -->
+    <div class="screen screen-map">
+      <div class="panel map-head">
+        <a class="btn" href="index.html">⇄ World</a>
+        <h1>Hidden Object</h1>
+        <span class="btn theme-chip"><span class="nm-h">🕸️ Haunted</span><span class="nm-l">💗 Love</span></span>
+      </div>
+      <p class="subtitle">
+        <span class="nm-h">Seven rooms of the old mansion keep their secrets under lock and key. Clear a room to open the next.</span>
+        <span class="nm-l">Seven rooms of the rose manor keep their treasures under lock and key. Clear a room to open the next.</span>
+      </p>
+      <div class="saga">
+        <label class="node n1" for="scr-1">
+          <span class="orb">1</span>
+          <span class="n-meta">
+            <span class="n-name"><span class="nm-h">The Foyer</span><span class="nm-l">Garden Gate</span></span>
+            <span class="n-sub">6 objects · 2:30</span>
+          </span>
+          <span class="lock-ico">🔒</span><span class="done-ico">✓</span>
+        </label>
+        <label class="node n2 locked" for="scr-2">
+          <span class="orb">2</span>
+          <span class="n-meta">
+            <span class="n-name"><span class="nm-h">Drawing Room</span><span class="nm-l">Rose Parlor</span></span>
+            <span class="n-sub">7 objects · 2:15</span>
+          </span>
+          <span class="lock-ico">🔒</span><span class="done-ico">✓</span>
+        </label>
+        <label class="node n3 locked" for="scr-3">
+          <span class="orb">3</span>
+          <span class="n-meta">
+            <span class="n-name"><span class="nm-h">The Library</span><span class="nm-l">Storybook Study</span></span>
+            <span class="n-sub">7 objects · 2:00</span>
+          </span>
+          <span class="lock-ico">🔒</span><span class="done-ico">✓</span>
+        </label>
+        <label class="node n4 locked" for="scr-4">
+          <span class="orb">4</span>
+          <span class="n-meta">
+            <span class="n-name"><span class="nm-h">The Attic</span><span class="nm-l">Attic of Letters</span></span>
+            <span class="n-sub">7 objects · 1:45</span>
+          </span>
+          <span class="lock-ico">🔒</span><span class="done-ico">✓</span>
+        </label>
+        <label class="node n5 locked" for="scr-5">
+          <span class="orb">5</span>
+          <span class="n-meta">
+            <span class="n-name"><span class="nm-h">The Crypt</span><span class="nm-l">Wedding Chapel</span></span>
+            <span class="n-sub">5 objects + 4 differences · 2:00</span>
+          </span>
+          <span class="lock-ico">🔒</span><span class="done-ico">✓</span>
+        </label>
+        <label class="node n6 locked" for="scr-6">
+          <span class="orb">6</span>
+          <span class="n-meta">
+            <span class="n-name"><span class="nm-h">The Ballroom</span><span class="nm-l">Ballroom of Hearts</span></span>
+            <span class="n-sub">5 objects + 4 differences · 1:50</span>
+          </span>
+          <span class="lock-ico">🔒</span><span class="done-ico">✓</span>
+        </label>
+        <label class="node n7 locked" for="scr-7">
+          <span class="orb">7</span>
+          <span class="n-meta">
+            <span class="n-name"><span class="nm-h">Master Chamber</span><span class="nm-l">Wedding Hall</span></span>
+            <span class="n-sub">6 objects + 5 differences · 1:40</span>
+          </span>
+          <span class="lock-ico">🔒</span><span class="done-ico">✓</span>
+        </label>
+      </div>
+    </div>
+
+    <!-- ===== LEVEL 1 ===== -->
+    <div class="screen screen-1">
+      <div class="hud panel">
+        <div class="hud-top">
+          <label class="btn" for="scr-map">🗺 Map</label>
+          <div class="lv-title">1 · <span class="nm-h">The Foyer</span><span class="nm-l">Garden Gate</span></div>
+          <span class="hud-btns">
+            <button type="button" class="btn sound-toggle" aria-pressed="true">Sound on</button>
+            <label class="btn hint-toggle" for="hint-1" title="Highlight the next unfound object; toggle off to hide">Hint</label>
+          </span>
+        </div>
+        <div class="time-readout"><span class="clock-label">Time remaining</span><span class="css-clock" role="timer" aria-live="off"><span class="clock-dial" aria-hidden="true"></span><span class="clock-digits"></span></span></div>
+        <div class="timer"><div class="bar"></div></div>
+        <ul class="list">
+          <li class="li-i1"><span class="nm-h">Rusty key</span><span class="nm-l">Heart-bow key</span></li>
+          <li class="li-i2"><span class="nm-h">Wax candle stub</span><span class="nm-l">Rose wax candle</span></li>
+          <li class="li-i3"><span class="nm-h">Old photograph</span><span class="nm-l">Pressed-rose portrait</span></li>
+          <li class="li-i4">Pocket watch</li>
+          <li class="li-i5"><span class="nm-h">Withered rose</span><span class="nm-l">Dried pink rose</span></li>
+          <li class="li-i6"><span class="nm-h">Old letter</span><span class="nm-l">Love letter</span></li>
+        </ul>
+      </div>
+      <div class="stage">
+        <div class="room">
+          <div class="bg"></div>
+
+          <label class="obj sh-key i1" for="l1-i1" role="button" aria-label="Rusty key" tabindex="-1"><span class="k-ring"></span><span class="k-shaft"></span><span class="tick">✓</span></label>
+          <label class="obj sh-candle i2" for="l1-i2" role="button" aria-label="Wax candle stub" tabindex="-1"><span class="flame"></span><span class="wax"></span><span class="tick">✓</span></label>
+          <label class="obj sh-photo i3" for="l1-i3" role="button" aria-label="Old photograph" tabindex="-1"><span class="p-card"><span class="p-face"></span></span><span class="tick">✓</span></label>
+          <label class="obj sh-watch i4" for="l1-i4" role="button" aria-label="Pocket watch" tabindex="-1"><span class="w-loop"></span><span class="w-face"></span><span class="tick">✓</span></label>
+          <label class="obj sh-rose i5" for="l1-i5" role="button" aria-label="Withered rose" tabindex="-1"><span class="rs-stem"></span><span class="rs-leaf"></span><span class="rs-bloom"></span><span class="tick">✓</span></label>
+          <label class="obj sh-letter i6" for="l1-i6" role="button" aria-label="Old letter" tabindex="-1"><span class="lt-env"></span><span class="lt-flap"></span><span class="lt-seal"></span><span class="tick">✓</span></label>
+        </div>
+
+        <div class="over over-time">
+          <div class="over-card time-card">
+            <h2>Time's Up!</h2>
+            <p><span class="nm-h">The darkness keeps its secrets… for now.</span><span class="nm-l">The moment slipped through your fingers…</span> Restart world begins again from room 1.</p>
+            <div class="row">
+              <a class="btn gold" href="haunted.html">Restart world</a>
+              <label class="btn" for="scr-map">🗺 Level Map</label>
+            </div>
+          </div>
+        </div>
+        <div class="over victory">
+          <div class="over-card">
+            <h2>Someone heard you</h2>
+            <p>You found every treasure in the foyer. Three knocks echo down the hall. Beside you, the drawing room door opens an inch.</p>
+            <div class="row">
+              <label class="btn gold" for="scr-2">Next Level →</label>
+              <label class="btn" for="scr-map">🗺 Level Map</label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== LEVEL 2 ===== -->
+    <div class="screen screen-2">
+      <div class="hud panel">
+        <div class="hud-top">
+          <label class="btn" for="scr-map">🗺 Map</label>
+          <div class="lv-title">2 · <span class="nm-h">Drawing Room</span><span class="nm-l">Rose Parlor</span></div>
+          <span class="hud-btns">
+            <button type="button" class="btn sound-toggle" aria-pressed="true">Sound on</button>
+            <label class="btn hint-toggle" for="hint-2" title="Highlight the next unfound object; toggle off to hide">Hint</label>
+          </span>
+        </div>
+        <div class="time-readout"><span class="clock-label">Time remaining</span><span class="css-clock" role="timer" aria-live="off"><span class="clock-dial" aria-hidden="true"></span><span class="clock-digits"></span></span></div>
+        <div class="timer"><div class="bar"></div></div>
+        <ul class="list">
+          <li class="li-i1"><span class="nm-h">Wax candle stub</span><span class="nm-l">Rose wax candle</span></li>
+          <li class="li-i2"><span class="nm-h">Spider</span><span class="nm-l">Butterfly</span></li>
+          <li class="li-i3"><span class="nm-h">Old photograph</span><span class="nm-l">Pressed-rose portrait</span></li>
+          <li class="li-i4">Pocket watch</li>
+          <li class="li-i5"><span class="nm-h">Red gemstone</span><span class="nm-l">Ruby heart</span></li>
+          <li class="li-i6"><span class="nm-h">Skull amulet</span><span class="nm-l">Heart locket</span></li>
+          <li class="li-i7"><span class="nm-h">Rusty key</span><span class="nm-l">Heart-bow key</span></li>
+        </ul>
+      </div>
+      <div class="stage">
+        <div class="room">
+          <div class="bg"></div>
+
+          <label class="obj sh-candle i1" for="l2-i1" role="button" aria-label="Wax candle stub" tabindex="-1"><span class="flame"></span><span class="wax"></span><span class="tick">✓</span></label>
+          <label class="obj sh-spider i2" for="l2-i2" role="button" aria-label="Spider" tabindex="-1">
+            <span class="vh"><span class="s-body"></span><span class="leg l1"></span><span class="leg l2"></span><span class="leg l3"></span><span class="leg l4"></span><span class="leg r1"></span><span class="leg r2"></span><span class="leg r3"></span><span class="leg r4"></span></span>
+            <span class="vl"><span class="bf-wing wl"></span><span class="bf-wing wr"></span><span class="bf-body"></span></span>
+            <span class="tick">✓</span>
+          </label>
+          <label class="obj sh-photo i3" for="l2-i3" role="button" aria-label="Old photograph" tabindex="-1"><span class="p-card"><span class="p-face"></span></span><span class="tick">✓</span></label>
+          <label class="obj sh-watch i4" for="l2-i4" role="button" aria-label="Pocket watch" tabindex="-1"><span class="w-loop"></span><span class="w-face"></span><span class="tick">✓</span></label>
+          <label class="obj sh-gem i5" for="l2-i5" role="button" aria-label="Red gemstone" tabindex="-1"><span class="g-stone"></span><span class="tick">✓</span></label>
+          <label class="obj sh-skull i6" for="l2-i6" role="button" aria-label="Skull amulet" tabindex="-1">
+            <span class="vh"><span class="sk-cap"></span><span class="sk-jaw"></span></span>
+            <span class="vl"><span class="hl-heart"></span></span>
+            <span class="tick">✓</span>
+          </label>
+          <label class="obj sh-key i7" for="l2-i7" role="button" aria-label="Rusty key" tabindex="-1"><span class="k-ring"></span><span class="k-shaft"></span><span class="tick">✓</span></label>
+        </div>
+
+        <div class="over over-time">
+          <div class="over-card time-card">
+            <h2>Time's Up!</h2>
+            <p><span class="nm-h">The candles gutter out. The room wins this round.</span><span class="nm-l">The roses closed before you finished…</span> Restart world begins again from room 1.</p>
+            <div class="row">
+              <a class="btn gold" href="haunted.html">Restart world</a>
+              <label class="btn" for="scr-map">🗺 Level Map</label>
+            </div>
+          </div>
+        </div>
+        <div class="over victory">
+          <div class="over-card">
+            <h2>A most peculiar host</h2>
+            <p>The last jewel is yours. In the portrait above the mantel, the old master raises his glass to you.</p>
+            <div class="row">
+              <label class="btn gold" for="scr-3">Next Level →</label>
+              <label class="btn" for="scr-map">🗺 Level Map</label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== LEVEL 3 ===== -->
+    <div class="screen screen-3">
+      <div class="hud panel">
+        <div class="hud-top">
+          <label class="btn" for="scr-map">🗺 Map</label>
+          <div class="lv-title">3 · <span class="nm-h">The Library</span><span class="nm-l">Storybook Study</span></div>
+          <span class="hud-btns">
+            <button type="button" class="btn sound-toggle" aria-pressed="true">Sound on</button>
+            <label class="btn hint-toggle" for="hint-3" title="Highlight the next unfound object; toggle off to hide">Hint</label>
+          </span>
+        </div>
+        <div class="time-readout"><span class="clock-label">Time remaining</span><span class="css-clock" role="timer" aria-live="off"><span class="clock-dial" aria-hidden="true"></span><span class="clock-digits"></span></span></div>
+        <div class="timer"><div class="bar"></div></div>
+        <ul class="list">
+          <li class="li-i1"><span class="nm-h">Rusty key</span><span class="nm-l">Heart-bow key</span></li>
+          <li class="li-i2"><span class="nm-h">Wax candle stub</span><span class="nm-l">Rose wax candle</span></li>
+          <li class="li-i3"><span class="nm-h">Red gemstone</span><span class="nm-l">Ruby heart</span></li>
+          <li class="li-i4"><span class="nm-h">Potion</span><span class="nm-l">Perfume</span></li>
+          <li class="li-i5"><span class="nm-h">Old letter</span><span class="nm-l">Love letter</span></li>
+          <li class="li-i6">Pocket watch</li>
+          <li class="li-i7"><span class="nm-h">Spider</span><span class="nm-l">Butterfly</span></li>
+        </ul>
+      </div>
+      <div class="stage">
+        <div class="room">
+          <div class="bg"></div>
+
+          <label class="obj sh-key i1" for="l3-i1" role="button" aria-label="Rusty key" tabindex="-1"><span class="k-ring"></span><span class="k-shaft"></span><span class="tick">✓</span></label>
+          <label class="obj sh-candle i2" for="l3-i2" role="button" aria-label="Wax candle stub" tabindex="-1"><span class="flame"></span><span class="wax"></span><span class="tick">✓</span></label>
+          <label class="obj sh-gem i3" for="l3-i3" role="button" aria-label="Red gemstone" tabindex="-1"><span class="g-stone"></span><span class="tick">✓</span></label>
+          <label class="obj sh-potion i4" for="l3-i4" role="button" aria-label="Potion" tabindex="-1"><span class="po-cork"></span><span class="po-neck"></span><span class="po-body"></span><span class="tick">✓</span></label>
+          <label class="obj sh-letter i5" for="l3-i5" role="button" aria-label="Old letter" tabindex="-1"><span class="lt-env"></span><span class="lt-flap"></span><span class="lt-seal"></span><span class="tick">✓</span></label>
+          <label class="obj sh-watch i6" for="l3-i6" role="button" aria-label="Pocket watch" tabindex="-1"><span class="w-loop"></span><span class="w-face"></span><span class="tick">✓</span></label>
+          <label class="obj sh-spider i7" for="l3-i7" role="button" aria-label="Spider" tabindex="-1">
+            <span class="vh"><span class="s-body"></span><span class="leg l1"></span><span class="leg l2"></span><span class="leg l3"></span><span class="leg l4"></span><span class="leg r1"></span><span class="leg r2"></span><span class="leg r3"></span><span class="leg r4"></span></span>
+            <span class="vl"><span class="bf-wing wl"></span><span class="bf-wing wr"></span><span class="bf-body"></span></span>
+            <span class="tick">✓</span>
+          </label>
+        </div>
+
+        <div class="over over-time">
+          <div class="over-card time-card">
+            <h2>Time's Up!</h2>
+            <p><span class="nm-h">The books whisper your failure to the shelves.</span><span class="nm-l">The storybooks closed their happy endings for now.</span> Restart world begins again from room 1.</p>
+            <div class="row">
+              <a class="btn gold" href="haunted.html">Restart world</a>
+              <label class="btn" for="scr-map">🗺 Level Map</label>
+            </div>
+          </div>
+        </div>
+        <div class="over victory">
+          <div class="over-card">
+            <h2>The library lets you in</h2>
+            <p>You found the last piece. A book slides out by itself. Inside the cover, someone has drawn a map to the attic.</p>
+            <div class="row">
+              <label class="btn gold" for="scr-4">Next Level →</label>
+              <label class="btn" for="scr-map">🗺 Level Map</label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== LEVEL 4 ===== -->
+    <div class="screen screen-4">
+      <div class="hud panel">
+        <div class="hud-top">
+          <label class="btn" for="scr-map">🗺 Map</label>
+          <div class="lv-title">4 · <span class="nm-h">The Attic</span><span class="nm-l">Attic of Letters</span></div>
+          <span class="hud-btns">
+            <button type="button" class="btn sound-toggle" aria-pressed="true">Sound on</button>
+            <label class="btn hint-toggle" for="hint-4" title="Highlight the next unfound object; toggle off to hide">Hint</label>
+          </span>
+        </div>
+        <div class="time-readout"><span class="clock-label">Time remaining</span><span class="css-clock" role="timer" aria-live="off"><span class="clock-dial" aria-hidden="true"></span><span class="clock-digits"></span></span></div>
+        <div class="timer"><div class="bar"></div></div>
+        <ul class="list">
+          <li class="li-i1"><span class="nm-h">Old photograph</span><span class="nm-l">Pressed-rose portrait</span></li>
+          <li class="li-i2"><span class="nm-h">Skull amulet</span><span class="nm-l">Heart locket</span></li>
+          <li class="li-i3"><span class="nm-h">Bat</span><span class="nm-l">Ribbon bow</span></li>
+          <li class="li-i4"><span class="nm-h">Withered rose</span><span class="nm-l">Dried pink rose</span></li>
+          <li class="li-i5"><span class="nm-h">Cursed ring</span><span class="nm-l">Wedding ring</span></li>
+          <li class="li-i6"><span class="nm-h">Potion</span><span class="nm-l">Perfume</span></li>
+          <li class="li-i7"><span class="nm-h">Rusty key</span><span class="nm-l">Heart-bow key</span></li>
+        </ul>
+      </div>
+      <div class="stage">
+        <div class="room">
+          <div class="bg"></div>
+
+          <label class="obj sh-photo i1" for="l4-i1" role="button" aria-label="Old photograph" tabindex="-1"><span class="p-card"><span class="p-face"></span></span><span class="tick">✓</span></label>
+          <label class="obj sh-skull i2" for="l4-i2" role="button" aria-label="Skull amulet" tabindex="-1">
+            <span class="vh"><span class="sk-cap"></span><span class="sk-jaw"></span></span>
+            <span class="vl"><span class="hl-heart"></span></span>
+            <span class="tick">✓</span>
+          </label>
+          <label class="obj sh-bat i3" for="l4-i3" role="button" aria-label="Bat" tabindex="-1">
+            <span class="vh"><span class="bt-body"></span><span class="bt-wing wl"></span><span class="bt-wing wr"></span></span>
+            <span class="vl"><span class="rb-loop rl"></span><span class="rb-loop rr"></span><span class="rb-knot"></span><span class="rb-tail"></span></span>
+            <span class="tick">✓</span>
+          </label>
+          <label class="obj sh-rose i4" for="l4-i4" role="button" aria-label="Withered rose" tabindex="-1"><span class="rs-stem"></span><span class="rs-leaf"></span><span class="rs-bloom"></span><span class="tick">✓</span></label>
+          <label class="obj sh-ring i5" for="l4-i5" role="button" aria-label="Cursed ring" tabindex="-1"><span class="rg-band"></span><span class="rg-gem"></span><span class="tick">✓</span></label>
+          <label class="obj sh-potion i6" for="l4-i6" role="button" aria-label="Potion" tabindex="-1"><span class="po-cork"></span><span class="po-neck"></span><span class="po-body"></span><span class="tick">✓</span></label>
+          <label class="obj sh-key i7" for="l4-i7" role="button" aria-label="Rusty key" tabindex="-1"><span class="k-ring"></span><span class="k-shaft"></span><span class="tick">✓</span></label>
+        </div>
+
+        <div class="over over-time">
+          <div class="over-card time-card">
+            <h2>Time's Up!</h2>
+            <p><span class="nm-h">Dust settles over everything you failed to find.</span><span class="nm-l">The old letters fluttered back into their trunks.</span> Restart world begins again from room 1.</p>
+            <div class="row">
+              <a class="btn gold" href="haunted.html">Restart world</a>
+              <label class="btn" for="scr-map">🗺 Level Map</label>
+            </div>
+          </div>
+        </div>
+        <div class="over victory">
+          <div class="over-card">
+            <h2>Footsteps overhead</h2>
+            <p>Every attic treasure is accounted for. So whose footsteps can you still hear on the roof?</p>
+            <div class="row">
+              <label class="btn gold" for="scr-5">Next Level →</label>
+              <label class="btn" for="scr-map">🗺 Level Map</label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== LEVEL 5 (twin) ===== -->
+    <div class="screen screen-5">
+      <div class="hud panel">
+        <div class="hud-top">
+          <label class="btn" for="scr-map">🗺 Map</label>
+          <div class="lv-title">5 · <span class="nm-h">The Crypt</span><span class="nm-l">Wedding Chapel</span></div>
+          <span class="hud-btns">
+            <button type="button" class="btn sound-toggle" aria-pressed="true">Sound on</button>
+            <label class="btn hint-toggle" for="hint-5" title="Highlight the next unfound object; toggle off to hide">Hint</label>
+          </span>
+        </div>
+        <div class="time-readout"><span class="clock-label">Time remaining</span><span class="css-clock" role="timer" aria-live="off"><span class="clock-dial" aria-hidden="true"></span><span class="clock-digits"></span></span></div>
+        <div class="timer"><div class="bar"></div></div>
+        <ul class="list">
+          <li class="list-head">Find in either image</li>
+          <li class="li-i1"><span class="nm-h">Red gemstone</span><span class="nm-l">Ruby heart</span></li>
+          <li class="li-i2"><span class="nm-h">Wax candle stub</span><span class="nm-l">Rose wax candle</span></li>
+          <li class="li-i3">Pocket watch</li>
+          <li class="li-i4"><span class="nm-h">Old letter</span><span class="nm-l">Love letter</span></li>
+          <li class="li-i5"><span class="nm-h">Cursed ring</span><span class="nm-l">Wedding ring</span></li>
+          <li class="list-head">Differences — unnamed</li>
+          <li class="li-i6 diff-item">Difference 1</li>
+          <li class="li-i7 diff-item">Difference 2</li>
+          <li class="li-i8 diff-item">Difference 3</li>
+          <li class="li-d1 diff-item">Difference 4</li>
+        </ul>
+      </div>
+      <div class="stage">
+        <div class="twin-scroll"><div class="twin">
+          <div class="pane pane-a">
+            <span class="p-tag">Image A</span>
+            <div class="room">
+              <div class="bg"></div>
+              <label class="obj sh-gem i1" for="l5-i1" role="button" aria-label="Red gemstone" tabindex="-1"><span class="g-stone"></span><span class="tick">✓</span></label>
+              <label class="obj sh-candle i2" for="l5-i2" role="button" aria-label="Wax candle stub" tabindex="-1"><span class="flame"></span><span class="wax"></span><span class="tick">✓</span></label>
+              <label class="obj sh-watch i3" for="l5-i3" role="button" aria-label="Pocket watch" tabindex="-1"><span class="w-loop"></span><span class="w-face"></span><span class="tick">✓</span></label>
+              <label class="obj sh-letter i4" for="l5-i4" role="button" aria-label="Old letter" tabindex="-1"><span class="lt-env"></span><span class="lt-flap"></span><span class="lt-seal"></span><span class="tick">✓</span></label>
+              <label class="obj sh-ring i5" for="l5-i5" role="button" aria-label="Cursed ring" tabindex="-1"><span class="rg-band"></span><span class="rg-gem"></span><span class="tick">✓</span></label>
+              <label class="obj sh-rose i6 difference-target" for="l5-i6" role="button" aria-label="Difference 1" tabindex="-1"><span class="rs-stem"></span><span class="rs-leaf"></span><span class="rs-bloom"></span><span class="tick">✓</span></label>
+              <label class="obj sh-spider i7 difference-target" for="l5-i7" role="button" aria-label="Difference 2" tabindex="-1">
+                <span class="vh"><span class="s-body"></span><span class="leg l1"></span><span class="leg l2"></span><span class="leg l3"></span><span class="leg l4"></span><span class="leg r1"></span><span class="leg r2"></span><span class="leg r3"></span><span class="leg r4"></span></span>
+                <span class="vl"><span class="bf-wing wl"></span><span class="bf-wing wr"></span><span class="bf-body"></span></span>
+                <span class="tick">✓</span>
+              </label>
+            </div>
+          </div>
+          <div class="pane pane-b">
+            <span class="p-tag">Image B</span>
+            <div class="room">
+              <div class="bg"></div>
+              <label class="obj sh-gem i1" for="l5-i1" role="button" aria-label="Red gemstone" tabindex="-1"><span class="g-stone"></span><span class="tick">✓</span></label>
+              <label class="obj sh-candle i2" for="l5-i2" role="button" aria-label="Wax candle stub" tabindex="-1"><span class="flame"></span><span class="wax"></span><span class="tick">✓</span></label>
+              <label class="obj sh-watch i3" for="l5-i3" role="button" aria-label="Pocket watch" tabindex="-1"><span class="w-loop"></span><span class="w-face"></span><span class="tick">✓</span></label>
+              <label class="obj sh-letter i4" for="l5-i4" role="button" aria-label="Old letter" tabindex="-1"><span class="lt-env"></span><span class="lt-flap"></span><span class="lt-seal"></span><span class="tick">✓</span></label>
+              <label class="obj sh-ring i5" for="l5-i5" role="button" aria-label="Cursed ring" tabindex="-1"><span class="rg-band"></span><span class="rg-gem"></span><span class="tick">✓</span></label>
+              <label class="obj sh-skull i8 difference-target" for="l5-i8" role="button" aria-label="Difference 3" tabindex="-1">
+                <span class="vh"><span class="sk-cap"></span><span class="sk-jaw"></span></span>
+                <span class="vl"><span class="hl-heart"></span></span>
+                <span class="tick">✓</span>
+              </label>
+              <label class="diff difference-target d1" for="l5-d1" role="button" aria-label="Difference 4" tabindex="-1"><span class="dshape ds-candle"><span class="wax"></span><span class="flame"></span></span><span class="tick">✓</span></label>
+            </div>
+          </div>
+        </div></div>
+
+        <div class="over over-time">
+          <div class="over-card time-card">
+            <h2>Time's Up!</h2>
+            <p><span class="nm-h">The crypt seals itself. The dead keep their counsel.</span><span class="nm-l">The chapel bells rang before you could listen.</span> Restart world begins again from room 1.</p>
+            <div class="row">
+              <a class="btn gold" href="haunted.html">Restart world</a>
+              <label class="btn" for="scr-map">🗺 Level Map</label>
+            </div>
+          </div>
+        </div>
+        <div class="over victory">
+          <div class="over-card">
+            <h2>Even the dead applaud</h2>
+            <p>You spotted every difference in the crypt. From behind the stone comes a polite, distinctly bony round of applause.</p>
+            <div class="row">
+              <label class="btn gold" for="scr-6">Next Level →</label>
+              <label class="btn" for="scr-map">🗺 Level Map</label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== LEVEL 6 (twin) ===== -->
+    <div class="screen screen-6">
+      <div class="hud panel">
+        <div class="hud-top">
+          <label class="btn" for="scr-map">🗺 Map</label>
+          <div class="lv-title">6 · <span class="nm-h">The Ballroom</span><span class="nm-l">Ballroom of Hearts</span></div>
+          <span class="hud-btns">
+            <button type="button" class="btn sound-toggle" aria-pressed="true">Sound on</button>
+            <label class="btn hint-toggle" for="hint-6" title="Highlight the next unfound object; toggle off to hide">Hint</label>
+          </span>
+        </div>
+        <div class="time-readout"><span class="clock-label">Time remaining</span><span class="css-clock" role="timer" aria-live="off"><span class="clock-dial" aria-hidden="true"></span><span class="clock-digits"></span></span></div>
+        <div class="timer"><div class="bar"></div></div>
+        <ul class="list">
+          <li class="list-head">Find in either image</li>
+          <li class="li-i1"><span class="nm-h">Rusty key</span><span class="nm-l">Heart-bow key</span></li>
+          <li class="li-i2"><span class="nm-h">Old photograph</span><span class="nm-l">Pressed-rose portrait</span></li>
+          <li class="li-i3"><span class="nm-h">Bat</span><span class="nm-l">Ribbon bow</span></li>
+          <li class="li-i4"><span class="nm-h">Potion</span><span class="nm-l">Perfume</span></li>
+          <li class="li-i5"><span class="nm-h">Tarnished crown</span><span class="nm-l">Pearl tiara</span></li>
+          <li class="list-head">Differences — unnamed</li>
+          <li class="li-i6 diff-item">Difference 1</li>
+          <li class="li-i7 diff-item">Difference 2</li>
+          <li class="li-i8 diff-item">Difference 3</li>
+          <li class="li-d1 diff-item">Difference 4</li>
+        </ul>
+      </div>
+      <div class="stage">
+        <div class="twin-scroll"><div class="twin">
+          <div class="pane pane-a">
+            <span class="p-tag">Image A</span>
+            <div class="room">
+              <div class="bg"></div>
+              <label class="obj sh-key i1" for="l6-i1" role="button" aria-label="Rusty key" tabindex="-1"><span class="k-ring"></span><span class="k-shaft"></span><span class="tick">✓</span></label>
+              <label class="obj sh-photo i2" for="l6-i2" role="button" aria-label="Old photograph" tabindex="-1"><span class="p-card"><span class="p-face"></span></span><span class="tick">✓</span></label>
+              <label class="obj sh-bat i3" for="l6-i3" role="button" aria-label="Bat" tabindex="-1">
+                <span class="vh"><span class="bt-body"></span><span class="bt-wing wl"></span><span class="bt-wing wr"></span></span>
+                <span class="vl"><span class="rb-loop rl"></span><span class="rb-loop rr"></span><span class="rb-knot"></span><span class="rb-tail"></span></span>
+                <span class="tick">✓</span>
+              </label>
+              <label class="obj sh-potion i4" for="l6-i4" role="button" aria-label="Potion" tabindex="-1"><span class="po-cork"></span><span class="po-neck"></span><span class="po-body"></span><span class="tick">✓</span></label>
+              <label class="obj sh-crown i5" for="l6-i5" role="button" aria-label="Tarnished crown" tabindex="-1"><span class="cr-band"></span><span class="cr-points"></span><span class="cr-jewel"></span><span class="tick">✓</span></label>
+              <label class="obj sh-gem i6 difference-target" for="l6-i6" role="button" aria-label="Difference 1" tabindex="-1"><span class="g-stone"></span><span class="tick">✓</span></label>
+              <label class="diff difference-target d1" for="l6-d1" role="button" aria-label="Difference 4" tabindex="-1"><span class="dshape ds-crystal"></span><span class="tick">✓</span></label>
+            </div>
+          </div>
+          <div class="pane pane-b">
+            <span class="p-tag">Image B</span>
+            <div class="room">
+              <div class="bg"></div>
+              <label class="obj sh-key i1" for="l6-i1" role="button" aria-label="Rusty key" tabindex="-1"><span class="k-ring"></span><span class="k-shaft"></span><span class="tick">✓</span></label>
+              <label class="obj sh-photo i2" for="l6-i2" role="button" aria-label="Old photograph" tabindex="-1"><span class="p-card"><span class="p-face"></span></span><span class="tick">✓</span></label>
+              <label class="obj sh-bat i3" for="l6-i3" role="button" aria-label="Bat" tabindex="-1">
+                <span class="vh"><span class="bt-body"></span><span class="bt-wing wl"></span><span class="bt-wing wr"></span></span>
+                <span class="vl"><span class="rb-loop rl"></span><span class="rb-loop rr"></span><span class="rb-knot"></span><span class="rb-tail"></span></span>
+                <span class="tick">✓</span>
+              </label>
+              <label class="obj sh-potion i4" for="l6-i4" role="button" aria-label="Potion" tabindex="-1"><span class="po-cork"></span><span class="po-neck"></span><span class="po-body"></span><span class="tick">✓</span></label>
+              <label class="obj sh-crown i5" for="l6-i5" role="button" aria-label="Tarnished crown" tabindex="-1"><span class="cr-band"></span><span class="cr-points"></span><span class="cr-jewel"></span><span class="tick">✓</span></label>
+              <label class="obj sh-candle i7 difference-target" for="l6-i7" role="button" aria-label="Difference 2" tabindex="-1"><span class="flame"></span><span class="wax"></span><span class="tick">✓</span></label>
+              <label class="obj sh-rose i8 difference-target" for="l6-i8" role="button" aria-label="Difference 3" tabindex="-1"><span class="rs-stem"></span><span class="rs-leaf"></span><span class="rs-bloom"></span><span class="tick">✓</span></label>
+            </div>
+          </div>
+        </div></div>
+
+        <div class="over over-time">
+          <div class="over-card time-card">
+            <h2>Time's Up!</h2>
+            <p><span class="nm-h">The music stops. The dance continues without you.</span><span class="nm-l">The waltz ended while you were still searching.</span> Restart world begins again from room 1.</p>
+            <div class="row">
+              <a class="btn gold" href="haunted.html">Restart world</a>
+              <label class="btn" for="scr-map">🗺 Level Map</label>
+            </div>
+          </div>
+        </div>
+        <div class="over victory">
+          <div class="over-card">
+            <h2>The last dance</h2>
+            <p>The unseen dancers bow as you find the final clue. At the far end of the ballroom, one door stands open.</p>
+            <div class="row">
+              <label class="btn gold" for="scr-7">Next Level →</label>
+              <label class="btn" for="scr-map">🗺 Level Map</label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== LEVEL 7 (twin, finale) ===== -->
+    <div class="screen screen-7">
+      <div class="hud panel">
+        <div class="hud-top">
+          <label class="btn" for="scr-map">🗺 Map</label>
+          <div class="lv-title">7 · <span class="nm-h">Master Chamber</span><span class="nm-l">Wedding Hall</span></div>
+          <span class="hud-btns">
+            <button type="button" class="btn sound-toggle" aria-pressed="true">Sound on</button>
+            <label class="btn hint-toggle" for="hint-7" title="Highlight the next unfound object; toggle off to hide">Hint</label>
+          </span>
+        </div>
+        <div class="time-readout"><span class="clock-label">Time remaining</span><span class="css-clock" role="timer" aria-live="off"><span class="clock-dial" aria-hidden="true"></span><span class="clock-digits"></span></span></div>
+        <div class="timer"><div class="bar"></div></div>
+        <ul class="list">
+          <li class="list-head">Find in either image</li>
+          <li class="li-i1"><span class="nm-h">Cursed ring</span><span class="nm-l">Wedding ring</span></li>
+          <li class="li-i2"><span class="nm-h">Tarnished crown</span><span class="nm-l">Pearl tiara</span></li>
+          <li class="li-i3">Pocket watch</li>
+          <li class="li-i4"><span class="nm-h">Red gemstone</span><span class="nm-l">Ruby heart</span></li>
+          <li class="li-i5"><span class="nm-h">Old letter</span><span class="nm-l">Love letter</span></li>
+          <li class="li-key">Cellar key</li>
+          <li class="list-head">Differences — unnamed</li>
+          <li class="li-i6 diff-item">Difference 1</li>
+          <li class="li-i7 diff-item">Difference 2</li>
+          <li class="li-i8 diff-item">Difference 3</li>
+          <li class="li-d1 diff-item">Difference 4</li>
+          <li class="li-d2 diff-item">Difference 5</li>
+        </ul>
+      </div>
+      <div class="stage">
+        <div class="twin-scroll"><div class="twin">
+          <div class="pane pane-a">
+            <span class="p-tag">Image A</span>
+            <div class="room">
+              <div class="bg"></div>
+              <label class="obj sh-ring i1" for="l7-i1" role="button" aria-label="Cursed ring" tabindex="-1"><span class="rg-band"></span><span class="rg-gem"></span><span class="tick">✓</span></label>
+              <label class="obj sh-crown i2" for="l7-i2" role="button" aria-label="Tarnished crown" tabindex="-1"><span class="cr-band"></span><span class="cr-points"></span><span class="cr-jewel"></span><span class="tick">✓</span></label>
+              <label class="obj sh-watch i3" for="l7-i3" role="button" aria-label="Pocket watch" tabindex="-1"><span class="w-loop"></span><span class="w-face"></span><span class="tick">✓</span></label>
+              <label class="obj sh-gem i4" for="l7-i4" role="button" aria-label="Red gemstone" tabindex="-1"><span class="g-stone"></span><span class="tick">✓</span></label>
+              <label class="obj sh-letter i5" for="l7-i5" role="button" aria-label="Old letter" tabindex="-1"><span class="lt-env"></span><span class="lt-flap"></span><span class="lt-seal"></span><span class="tick">✓</span></label>
+              <label class="obj sh-key finale-key" for="l7-key" role="button" aria-label="Cellar key" tabindex="-1"><span class="tick">✓</span></label>
+              <label class="obj sh-rose i6 difference-target" for="l7-i6" role="button" aria-label="Difference 1" tabindex="-1"><span class="rs-stem"></span><span class="rs-leaf"></span><span class="rs-bloom"></span><span class="tick">✓</span></label>
+              <label class="obj sh-candle i7 difference-target" for="l7-i7" role="button" aria-label="Difference 2" tabindex="-1"><span class="flame"></span><span class="wax"></span><span class="tick">✓</span></label>
+              <label class="obj sh-potion difference-target d2" for="l7-d2" role="button" aria-label="Difference 5" tabindex="-1"><span class="tick">✓</span></label>
+            </div>
+          </div>
+          <div class="pane pane-b">
+            <span class="p-tag">Image B</span>
+            <div class="room">
+              <div class="bg"></div>
+              <label class="obj sh-ring i1" for="l7-i1" role="button" aria-label="Cursed ring" tabindex="-1"><span class="rg-band"></span><span class="rg-gem"></span><span class="tick">✓</span></label>
+              <label class="obj sh-crown i2" for="l7-i2" role="button" aria-label="Tarnished crown" tabindex="-1"><span class="cr-band"></span><span class="cr-points"></span><span class="cr-jewel"></span><span class="tick">✓</span></label>
+              <label class="obj sh-watch i3" for="l7-i3" role="button" aria-label="Pocket watch" tabindex="-1"><span class="w-loop"></span><span class="w-face"></span><span class="tick">✓</span></label>
+              <label class="obj sh-gem i4" for="l7-i4" role="button" aria-label="Red gemstone" tabindex="-1"><span class="g-stone"></span><span class="tick">✓</span></label>
+              <label class="obj sh-letter i5" for="l7-i5" role="button" aria-label="Old letter" tabindex="-1"><span class="lt-env"></span><span class="lt-flap"></span><span class="lt-seal"></span><span class="tick">✓</span></label>
+              <label class="obj sh-key finale-key" for="l7-key" role="button" aria-label="Cellar key" tabindex="-1"><span class="tick">✓</span></label>
+              <label class="obj sh-skull i8 difference-target" for="l7-i8" role="button" aria-label="Difference 3" tabindex="-1">
+                <span class="vh"><span class="sk-cap"></span><span class="sk-jaw"></span></span>
+                <span class="vl"><span class="hl-heart"></span></span>
+                <span class="tick">✓</span>
+              </label>
+              <label class="diff difference-target d1" for="l7-d1" role="button" aria-label="Difference 4" tabindex="-1"><span class="dshape ds-candle"><span class="wax"></span><span class="flame"></span></span><span class="tick">✓</span></label>
+            </div>
+          </div>
+        </div></div>
+
+        <div class="over over-time">
+          <div class="over-card time-card">
+            <h2>Time's Up!</h2>
+            <p><span class="nm-h">So close — yet the final chamber holds fast.</span><span class="nm-l">So close — yet the final hall holds fast.</span> Restart world begins again from room 1.</p>
+            <div class="row">
+              <a class="btn gold" href="haunted.html">Restart world</a>
+              <label class="btn" for="scr-map">🗺 Level Map</label>
+            </div>
+          </div>
+        </div>
+        <div class="over victory">
+          <div class="confetti"><span class="cf"></span><span class="cf"></span><span class="cf"></span><span class="cf"></span><span class="cf"></span><span class="cf"></span><span class="cf"></span><span class="cf"></span><span class="cf"></span><span class="cf"></span></div>
+          <div class="over-card">
+            <h2>Congratulations, keeper of the keys!</h2>
+            <p>Seven rooms, every treasure, and one very startled ghost. As you leave, the old master tips his hat. For the first time in a hundred years, someone has beaten him at his own game.</p>
+            <div class="row">
+              <a class="btn gold" href="haunted.html">↻ Play Again</a>
+              <label class="btn" for="scr-map">🗺 Level Map</label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+</body>
+</html>
